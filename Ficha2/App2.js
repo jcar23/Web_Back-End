@@ -36,6 +36,9 @@ function reverse(str){
 var str = reverse("Hoje é Domingo");
 console.log(str)
 
+function writes(cases){
+    
+}
 
 
 /*const vogal = ['A','a','E','e','I','i','O','o','U','u']
@@ -160,7 +163,7 @@ function drawSquare(height,width){
     return squareDrawn
 }
 */
-/*
+
 function triangle(height){
     var line= '*'
     for (let i= 0; i <height; i++){
@@ -168,8 +171,8 @@ function triangle(height){
         line += "*"   
     }
 }
-triangle(3)
-*/
+triangle(5)
+
 function box (width,height){
 
     for (let i = 0; i < height; i++){
