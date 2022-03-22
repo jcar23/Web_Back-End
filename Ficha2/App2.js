@@ -277,3 +277,5 @@ function main(students, option){
     }
 }
 main(students, 1); // mudar para o case 2
+
+console.log('This is it')
