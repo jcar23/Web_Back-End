@@ -210,7 +210,7 @@ function box (width,height){
 }   
 box (3,3) */
 
-var studentOne = {
+/*var studentOne = {
     number: 100,
     grade: 15
 }
@@ -226,18 +226,20 @@ var studentFour = {
     number: 103,
     grade: 18
 }
+*/
 var students = [];
-for (let i = 0; i < 10; i++){
+for (let i = 0; i <= 5; i++){
     var student = {
-        number: Math.ceil(Math.random()* 100),
-        grade: Math.ceil(Math.random() * 20)
+        number: Math.ceil (Math.random()* 30),
+        grade: Math.ceil (Math.random() * 20)
     }
+    students.push(student)
 }
 
-students.push(studentOne)
-students.push(studentTwo)
-students.push(studentThree)
-students.push(studentFour)
+//students.push(studentOne)
+//students.push(studentTwo)
+//students.push(studentThree)
+//students.push(studentFour)
 //console.log(student[0])
 console.log(students[0].number)
 
@@ -248,10 +250,29 @@ function listStudents(students){
         console.log("Number: " + student.number + ", Grade: " + student.grade)
     }
 }
+/*function bestGrade(students){
+    var max = [];
+    for (var i = 0; i <= students.length; i++){
+        var student = students[i];
+        if (student.grade > max){
+            max = student.grade
+        }
+    }
+    console.log("bestGrade " + max)
+}
+*/
 
 function bestGrade(students){
-    var max = students[0]
-
+    var max = students[0].grade;
+    var bestStudent = students[0];
+    
+    for (let i = 1; i <students.length; i++){
+        if( students[i].grade > max){
+            max = students[i].grade;
+            bestStudent = students[i];
+        }
+    }
+    console.log('Best Student -> Number: ' + bestStudent.number + ' Grade: ' + bestStudent.grade)
 }
 
 function main(students, option){
@@ -276,6 +297,6 @@ function main(students, option){
             break;
     }
 }
-main(students, 1); // mudar para o case 2
+main(students, 1, 2); // mudar para o case 2
 
 console.log('This is it')
