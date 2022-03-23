@@ -227,6 +227,15 @@ var studentFour = {
     grade: 18
 }
 */
+
+
+//students.push(studentOne)
+//students.push(studentTwo)
+//students.push(studentThree)
+//students.push(studentFour)
+//console.log(student[0])
+//console.log(students[0].number)
+
 var students = [];
 for (let i = 0; i <= 5; i++){
     var student = {
@@ -236,13 +245,7 @@ for (let i = 0; i <= 5; i++){
     students.push(student)
 }
 
-//students.push(studentOne)
-//students.push(studentTwo)
-//students.push(studentThree)
-//students.push(studentFour)
-//console.log(student[0])
-console.log(students[0].number)
-
+x = 0;
 
 function listStudents(students){
     for ( let i = 0; i < students.length; i++){
@@ -250,17 +253,6 @@ function listStudents(students){
         console.log("Number: " + student.number + ", Grade: " + student.grade)
     }
 }
-/*function bestGrade(students){
-    var max = [];
-    for (var i = 0; i <= students.length; i++){
-        var student = students[i];
-        if (student.grade > max){
-            max = student.grade
-        }
-    }
-    console.log("bestGrade " + max)
-}
-*/
 
 function bestGrade(students){
     var max = students[0].grade;
@@ -284,37 +276,54 @@ function bestGrade(students){
             worstStudent = students[j];
         }
     }
-    console.log('The most unfortunate student -> Number: ' + worstStudent.number + ' Grade: ' + worstStudent.grade)
- }
+    console.log('Worst Student -> Number: ' + worstStudent.number + ' Grade: ' + worstStudent.grade)
+}
+
 function avaregeGrade(students){
-    var avarege = students[0].grade;
-    var avaregeStudent = students[0];
-
-    for (let j = 1; j < students.length; j++){
-        if (students[j].grade > avarege < students[j].grade){
-            avarege = students[j].grade;
-            avaregeStudent = students[j];
-            //avarege = avarege / students.length
-
-        }
+    var avarege = 0;
+    for (let j = 0; j < students.length; j++){
+        avarege += students[j].grade; // acoumular as notas 
+        
     }
-    console.log('The avarege student -> Number: ' + avaregeStudent.number + ' Grade: ' + avaregeStudent.grade)
+    avarege = avarege / students.length;
+    return avarege;
 } 
 
-function inferiorTo10Grade(students){
-    var inferiorGrade = students[0].grade;
-    var inferiorStudent = student[0];
+function closestToAvg (students){
+    var avg = avaregeGrade(students);
+    var student = students[0];
+    var aux = Math.abs(avg - students[0].grade);
+    
+    for (var j = 1; j <students.length; j++){
+        var diff =  Math.abs( avg - students[j].grade); // diferenca //(Math.abs é usado para o valor absoluto)
+        if (diff < aux) {
+            aux = diff;
+            student = student[j];
+        }
+    }return student; 
+}
 
-    for (var k = 1; k <students.length; k++){
-        if (students[0].grade < 9.5) {
-            inferiorGrade = students[k].grade;
-            inferiorStudent = students[k];
+function inferiorGrade(students){
+    var inferiorGrade = 0;
+    for (var k = 0; k <students.length; k++){
+        if (students[k].grade < 9.5) {
+            inferiorGrade++;
         } 
         
     }
-    console.log('Those students with inferir grades are -> Number: ' + inferiorStudent.number + ' Grade: ' + inferiorStudent.grade)
+    return inferiorGrade;
 }
-function main(students, option1, option2, option3){
+
+function superiorGrade(students){
+    var inferiorGrade = 0;
+    for (var k = 0; k <students.length; k++){
+        if (students[k].grade > 9.5) {
+            inferiorGrade++;
+        } 
+    }
+    return superiorGrade;
+}
+function main(students, option1, option2, option3, option4, option5, option6){
     var option1 = 1;
     switch (option1) {
         case 1:
@@ -354,7 +363,7 @@ function main(students, option1, option2, option3){
     var option5 = 5
     switch (option5) {
         case 5:
-            inferiorTo10Grade(students)
+            inferiorGrade(students)
             break;
     
         default:
@@ -363,12 +372,12 @@ function main(students, option1, option2, option3){
     var option6 = 6
     switch (option6) {
         case 6:
-            //superiorTo10Grade(students)
+            superiorGrade(students)
             break;
 
         default:
             break;
     }
 }
-main(students, 1, 2, 3, 4, 5); //5, 6 // mudar para o case 2
+main(students, 1, 2, 3, 4, 5, 6); //5, 6 // mudar para o case 2
 
