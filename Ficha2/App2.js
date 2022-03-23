@@ -231,7 +231,7 @@ var students = [];
 for (let i = 0; i <= 5; i++){
     var student = {
         number: Math.ceil (Math.random()* 30),
-        grade: Math.ceil (Math.random() * 20)
+        grade: Math.ceil (Math.random() * 20),
     }
     students.push(student)
 }
@@ -274,29 +274,101 @@ function bestGrade(students){
     }
     console.log('Best Student -> Number: ' + bestStudent.number + ' Grade: ' + bestStudent.grade)
 }
+ function worstGrade(students){
+    var min = students[0].grade;
+    var worstStudent = students[0];
 
-function main(students, option){
-    var option = 1;
-    switch (option)  {
+    for (let j = 1; j <students.length; j++){
+        if (students[j].grade < min){
+            min = students[j].grade;
+            worstStudent = students[j];
+        }
+    }
+    console.log('The most unfortunate student -> Number: ' + worstStudent.number + ' Grade: ' + worstStudent.grade)
+ }
+function avaregeGrade(students){
+    var avarege = students[0].grade;
+    var avaregeStudent = students[0];
+
+    for (let j = 1; j < students.length; j++){
+        if (students[j].grade > avarege < students[j].grade){
+            avarege = students[j].grade;
+            avaregeStudent = students[j];
+            //avarege = avarege / students.length
+
+        }
+    }
+    console.log('The avarege student -> Number: ' + avaregeStudent.number + ' Grade: ' + avaregeStudent.grade)
+} 
+
+function inferiorTo10Grade(students){
+    var inferiorGrade = students[0].grade;
+    var inferiorStudent = student[0];
+
+    for (var k = 1; k <students.length; k++){
+        if (students[0].grade < 9.5) {
+            inferiorGrade = students[k].grade;
+            inferiorStudent = students[k];
+        } 
+        
+    }
+    console.log('Those students with inferir grades are -> Number: ' + inferiorStudent.number + ' Grade: ' + inferiorStudent.grade)
+}
+function main(students, option1, option2, option3){
+    var option1 = 1;
+    switch (option1) {
         case 1:
             listStudents(students);
             break;
+        
+        default:
+            break;
+    }
+    var option2 = 2
+    switch (option2) {
         case 2:
-            bestGrade(students)
+            bestGrade(students);
             break;
 
+        default:
+            break;
+    }
+    var option3 = 3
+    switch (option3) {
         case 3:
-            worstGrade(students)
+            worstGrade(students);
             break;
 
+        default:
+            break;
+    }
+    var option4 = 4
+    switch (option4) {
         case 4: 
-            avaregeGrade(students)
+            avaregeGrade(students);
+            break;
+
+        default:
+            break;
+    } 
+    var option5 = 5
+    switch (option5) {
+        case 5:
+            inferiorTo10Grade(students)
+            break;
+    
+        default:
+            break;
+    }
+    var option6 = 6
+    switch (option6) {
+        case 6:
+            //superiorTo10Grade(students)
             break;
 
         default:
             break;
     }
 }
-main(students, 1, 2); // mudar para o case 2
+main(students, 1, 2, 3, 4, 5); //5, 6 // mudar para o case 2
 
-console.log('This is it')
