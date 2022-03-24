@@ -286,21 +286,22 @@ function avaregeGrade(students){
         
     }
     avarege = avarege / students.length;
+    console.log(avarege)
     return avarege;
 } 
 
 function closestToAvg (students){
     var avg = avaregeGrade(students);
-    var student = students[0];
+    var studnt = students[0];
     var aux = Math.abs(avg - students[0].grade);
     
     for (var j = 1; j <students.length; j++){
         var diff =  Math.abs( avg - students[j].grade); // diferenca //(Math.abs é usado para o valor absoluto)
         if (diff < aux) {
             aux = diff;
-            student = student[j];
+            studnt = students[j];
         }
-    }return student; 
+    }return studnt; 
 }
 
 function inferiorGrade(students){
@@ -309,18 +310,17 @@ function inferiorGrade(students){
         if (students[k].grade < 9.5) {
             inferiorGrade++;
         } 
-        
-    }
+    }console.log(inferiorGrade)
     return inferiorGrade;
 }
 
 function superiorGrade(students){
-    var inferiorGrade = 0;
+    var superiorGrade = 0;
     for (var k = 0; k <students.length; k++){
         if (students[k].grade > 9.5) {
-            inferiorGrade++;
+            superiorGrade++;
         } 
-    }
+    }console.log(superiorGrade)
     return superiorGrade;
 }
 function main(students, option1, option2, option3, option4, option5, option6){
