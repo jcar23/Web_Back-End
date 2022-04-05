@@ -1,4 +1,5 @@
 var utils = {
+    //objecto chamado utils
     isEmpty: function (array) {
         if (array.length == 0) {
             return true;
