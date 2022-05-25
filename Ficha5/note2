@@ -1,0 +1,61 @@
+const bodyParser = require ('body-parser');
+const express = require('express');
+const fs = require('fs');
+
+const app = express();
+const port = 3000;
+
+function readFile(fileName){
+    var file = fs.readFileSync(fileName, 'utf-8');
+    return file;
+}
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : false}));
+
+app.get('/users', (req, res) => {
+    res.send(readFile('./persons.json'))
+});
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+});
+
+
+app.post('/users', (req, res) => {
+  var person = req.body;
+  var fileStr = readFile('./persons.json');
+  var fileObj = JSON.parse(fileStr);
+  res.send(JSON.stringify(fileObj));
+  //res.send(person.firstName)
+
+  //obter tamanho de um objecto Json
+  var size = Object.keys(fileObj).length;
+  // add uma instancia ao person
+  fileObj.person3 = person;
+  person.id = size+=1;
+  res.send(JSON.stringify(fileObj));
+});
+
+app.delete('/users', (req, res) => {
+  res.send('This is a delete');
+})
+app.put('/users', (req, res) => {
+  res.send('This is a put');
+});
+
+
+//var fileContent = fs.readFileSync('./persons.json','utf-8');
+
+
+/*
+var jsonObject = { x:10, y:20};
+var try2 = jsonObject.x;
+var try3 = jsonObject.y;
+var jsonString = '{"x":"10","y":"20"}';
+var try1 = JSON.parse(jsonString).x;
+*/

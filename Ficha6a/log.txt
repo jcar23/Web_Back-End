@@ -1,0 +1,23 @@
+This is amazingpath:/htmlresMETHOD:GETdate:Mon May 23 2022 18:41:06 GMT+0100 (西歐夏令時間)path:/htmlresMETHOD:GETdate:Mon May 23 2022 18:41:07 GMT+0100 (西歐夏令時間)path:/htmlresMETHOD:GETdate:Mon May 23 2022 18:41:08 GMT+0100 (西歐夏令時間)path:/htmlfileMETHOD:GETdate:Mon May 23 2022 18:41:11 GMT+0100 (西歐夏令時間)path:/htmlfileMETHOD:GETdate:Mon May 23 2022 18:41:11 GMT+0100 (西歐夏令時間)
+ path:/htmlfile
+ METHOD:GET
+ date:Mon May 23 2022 18:44:13 GMT+0100 (西歐夏令時間)
+ path:/htmlfile
+ METHOD:GET
+ date:Mon May 23 2022 18:44:13 GMT+0100 (西歐夏令時間)
+
+ path:/htmlres
+ METHOD:GET
+ date:Wed May 25 2022 09:25:42 GMT+0100 (西歐夏令時間)
+ path:/htmlres
+ METHOD:GET
+ date:Wed May 25 2022 09:25:49 GMT+0100 (西歐夏令時間)
+ path:/htmlres
+ METHOD:GET
+ date:Wed May 25 2022 09:25:50 GMT+0100 (西歐夏令時間)
+ path:/htmlres
+ METHOD:GET
+ date:Wed May 25 2022 09:25:51 GMT+0100 (西歐夏令時間)
+ path:/deleteFile
+ METHOD:DELETE
+ date:Wed May 25 2022 09:28:37 GMT+0100 (西歐夏令時間)

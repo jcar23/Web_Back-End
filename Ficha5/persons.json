@@ -1,0 +1,37 @@
+{ 
+    "person1": {   
+        "firstName" : "Carl",
+        "lastName" : "Fox",
+        "age" : "24", 
+        "gender" : "Masculino",
+        "profession" : "Software developer",
+        "id": 1
+    },
+    
+    "person2": {
+            "firstName" : "Telma",
+            "lastName" : "Dias",
+            "age" : "25",
+            "gender" : "Feminino",
+            "profession" : "Software developer",
+            "id": 2
+    },
+    
+    "person3": {
+        "firstName" : "Amilcia",
+        "lastName" : "Lima",
+        "age" : "20",
+        "gender" : "Feminino",
+        "profession" : "Nurse",
+        "id": 3
+    },
+    "person4": {
+        "firstName" : "Alice",
+        "lastName" : "Bath",
+        "age" : "30",
+        "gender" : "Feminino",
+        "profession" : "Professor",
+        "id": 4
+    }
+} 
+    

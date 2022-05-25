@@ -1,0 +1,74 @@
+const bodyparser = require('body-parser');
+const express = require('express');
+
+const fs = require('fs');
+const app = express()
+const port = 3000
+
+
+
+/*var jsonObject = {x:10, y:20};
+var jsonString = '{x:10, y:20}';
+
+var xx = jsonObject.x;
+var yy = jsonObject.y
+
+var xxx = json.parse(jsonString).x;
+var file = readFile('./person.json');
+var fileJSONObject = json.parse*/
+
+
+function readFile(filename,){
+    var file = fs.readFileSync(filename, 'utf-8');
+    return file;
+   
+}
+console.log(readFile('./persons.json'))
+
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded ({extended : false}));
+
+
+app.get('/users', (req, res) => {
+
+  res.send(readFile('./persons.json'))
+})
+
+/*app.post('/users', (req, res) => {
+  var t = req.body.test;
+  res.send(t);
+})*/
+
+app.post('/users', (req, res) => {
+  var person = req.body;
+
+  var fileStr = readFile('./persons.json')
+  var fileObj = JSON.parse(fileStr);
+
+  var size = Object.keys(fileObj).length;
+  person.id = size++;
+  fileObj.person5 = person;
+  res.send(JSON.stringify(fileObj));
+})
+
+
+app.delete('/users', (req, res) => {
+  res.send("this is a delete")
+})
+
+app.put('/users', (req, res) => {
+  res.send("this is a put")
+})
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+
+app.listen(port, () => {
+        console.log(`Example app listening on port ${port}`)
+      })
+      
+/*app.post('/users', function (req, res) => {
+    var test = req.body.test;
+    res.send("this is a post");
+   })*/
